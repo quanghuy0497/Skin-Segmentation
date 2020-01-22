@@ -147,8 +147,8 @@ def data_batch(image_paths, mask_paths, augment=False, batch_size=4, num_threads
         data = data.map(_corrupt_saturation,
                         num_parallel_calls=num_threads).prefetch(30)
 
-        data = data.map(
-            _crop_random, num_parallel_calls=num_threads).prefetch(30)
+        # data = data.map(
+        #     _crop_random, num_parallel_calls=num_threads).prefetch(30)
 
         data = data.map(_flip_left_right,
                         num_parallel_calls=num_threads).prefetch(30)
